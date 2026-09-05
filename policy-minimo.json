@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CreateLabBuckets",
+      "Effect": "Allow",
+      "Action": "s3:CreateBucket",
+      "Resource": "arn:aws:s3:::utec-s3-lab-*"
+    },
+    {
+      "Sid": "LabBucketManagement",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:PutBucketPolicy",
+        "s3:DeleteBucketPolicy",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:PutBucketWebsite",
+        "s3:DeleteBucket"
+      ],
+      "Resource": "arn:aws:s3:::utec-s3-lab-*"
+    },
+    {
+      "Sid": "LabObjectManagement",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::utec-s3-lab-*/*"
+    }
+  ]
+}
